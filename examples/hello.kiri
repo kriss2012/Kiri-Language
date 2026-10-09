@@ -1,0 +1,8 @@
+let name = "Kiri";
+print("Hello, " + name + "!");
+
+fn greet(person) {
+    print("Welcome, " + person + "!");
+}
+
+greet("Developer");
