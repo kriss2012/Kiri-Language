@@ -31,3 +31,11 @@ def test_function_call():
         print(add(2, 3));
     ''')
     assert '5' in output
+
+
+def test_logical_operators_short_circuit():
+    output = run_source('''
+        print(false and missing_name);
+        print(true or missing_name);
+    ''')
+    assert output.splitlines() == ['False', 'True']

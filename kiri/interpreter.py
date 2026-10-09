@@ -173,8 +173,14 @@ class KiriInterpreter:
 
     def evaluate_binary(self, expression: Binary) -> Any:
         left = self.evaluate(expression.left)
-        right = self.evaluate(expression.right)
         operator = expression.operator
+
+        if operator == "and":
+            return self.is_truthy(left) and self.is_truthy(self.evaluate(expression.right))
+        if operator == "or":
+            return self.is_truthy(left) or self.is_truthy(self.evaluate(expression.right))
+
+        right = self.evaluate(expression.right)
 
         if operator == "+":
             return left + right
@@ -198,10 +204,6 @@ class KiriInterpreter:
             return left > right
         if operator == ">=":
             return left >= right
-        if operator == "and":
-            return self.is_truthy(left) and self.is_truthy(right)
-        if operator == "or":
-            return self.is_truthy(left) or self.is_truthy(right)
         raise ValueError(f"Unsupported binary operator: {operator}")
 
     @staticmethod
