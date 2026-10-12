@@ -1,4 +1,4 @@
-# Kiri-Language
+see# Kiri-Language
 
 
 Kiri-Language is a small, experimental programming language implemented in Python. It is designed as a readable, beginner-friendly language with a minimal interpreter that supports variables, arithmetic, conditionals, loops, and functions.
