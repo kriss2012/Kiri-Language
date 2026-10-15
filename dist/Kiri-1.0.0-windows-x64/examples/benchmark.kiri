@@ -1,0 +1,15 @@
+def factorial(n: Int) -> Int:
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
+
+start = clock()
+iterations = 1000
+count = 0
+while count < iterations:
+    res = factorial(12)
+    count = count + 1
+
+elapsed = clock() - start
+print("Executed", iterations, "factorial(12) calculations in", elapsed, "seconds.")
+print("Final result:", res)

@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Kiri.Cli/Kiri.Cli.csproj" />
+    <Project Path="src/Kiri.Core/Kiri.Core.csproj" />
+    <Project Path="src/Kiri.Tests/Kiri.Tests.csproj" />
+  </Folder>
+</Solution>

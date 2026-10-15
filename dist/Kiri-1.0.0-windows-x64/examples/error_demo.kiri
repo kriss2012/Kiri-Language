@@ -1,0 +1,5 @@
+total = 100
+name = "Kiri"
+
+if total > 50:
+    print(total + undefined_symbol)

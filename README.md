@@ -1,72 +1,130 @@
-see# Kiri-Language
+# Kiri Programming Language
 
+> **"Python-level simplicity with systems-language-level performance, safety, tooling, concurrency, and deployment."**
 
-Kiri-Language is a small, experimental programming language implemented in Python. It is designed as a readable, beginner-friendly language with a minimal interpreter that supports variables, arithmetic, conditionals, loops, and functions.
+Kiri is a modern, high-performance programming language designed from first principles. It combines the clean readability, minimal ceremony, and expressiveness of Python with a redesigned compiler pipeline, unboxed runtime memory model, and free-threaded multi-core architecture.
 
-## Features
+---
 
-- Variables with `let` and reassignment
-- Arithmetic operators: `+`, `-`, `*`, `/`, `%`
-- Comparison and equality checks: `==`, `!=`, `<`, `<=`, `>`, `>=`
-- `if` / `else` blocks
-- `while` loops
-- Function definitions with `fn`
-- `return` statements
-- Built-in `print` function
+## Key Features & Departures from Python
 
-## Quick Start
+1. **Unboxed Value Semantics**:
+   - `Int` (64-bit signed) and `Float` (64-bit IEEE 754) run unboxed without heap allocations.
+2. **Safe Default Arguments**:
+   - Default argument expressions are evaluated **fresh per call**, eliminating Python's mutable-default state leakage trap.
+3. **By-Value Closure Capture**:
+   - Closures capture loop/iteration variables by value by default, eliminating late-binding traps.
+4. **Free-Threaded Multi-Core Concurrency**:
+   - Designed from day one without a Global Interpreter Lock (GIL).
+5. **Progressive Complexity**:
+   - Standard dynamic execution for rapid prototyping, combined with an optional `strict` mode for compile-time verified guarantees.
+6. **First-Class Diagnostics**:
+   - High-precision source tracking with line/column pointers, visual code snippets, and actionable suggestions.
 
+---
+
+## Installation & Setup
+
+Kiri can be installed as an independent, system-wide programming language without requiring compiler source repositories or external runtime setups.
+
+### One-Click Windows Installation
+Double-click `Setup.cmd` or run:
+```powershell
+.\Setup.cmd
+# Or: .\installer\windows\install.cmd
+```
+This automatically:
+1. Installs the native Kiri compiler and runtime to `%LOCALAPPDATA%\Kiri`.
+2. Permanently configures your system `PATH` so `kiri` is available globally in CMD, PowerShell, and Windows Terminal.
+3. Registers the official `.kiri` file extension and links official Kiri icons (`icons/kiri.ico`) in Windows File Explorer.
+4. Adds right-click **"Run with Kiri"** Explorer context action.
+5. Adds **Kiri REPL** to the Windows Start Menu.
+
+### Health Check (`kiri doctor`)
+Verify your environment and installation health anytime:
 ```bash
-cd Kiri-Language
-python main.py examples/hello.kiri
+kiri doctor
 ```
 
-You can also launch the interactive REPL:
+---
 
+## Quickstart
+
+### Running Kiri Scripts
 ```bash
-cd Kiri-Language
-python main.py
+# Direct file execution
+kiri examples/factorial.kiri
+
+# Explicit run command
+kiri run examples/hello.kiri
 ```
 
-## Example
+### Interactive REPL
+Launch the REPL by running:
+```bash
+kiri repl
+```
+Example session:
+```kiri
+>>> def greet(name: String) -> String:
+...     return "Hello, " + name
+>>> greet("Kiri")
+"Hello, Kiri"
+```
+
+### Clean Machine Execution
+Once installed, Kiri programs run from any folder without needing the source repository:
+```bash
+cd C:\MyProjects
+echo print("Hello from Kiri!") > hello.kiri
+kiri hello.kiri
+```
+
+---
+
+## Example: Recursive Factorial
 
 ```kiri
-let name = "Kiri";
-print("Hello, " + name + "!");
+def factorial(n: Int) -> Int:
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
 
-fn greet(person) {
-    print("Welcome, " + person + "!");
-}
-
-greet("Developer");
+print(factorial(10))
 ```
+**Output:**
+```text
+3628800
+```
+
+---
 
 ## Project Structure
 
 ```text
-Kiri-Language/
-├── kiri/             # Interpreter package
-│   ├── __init__.py
-│   ├── lexer.py      # Tokenizer
-│   ├── parser.py     # Recursive-descent parser
-│   └── interpreter.py# Runtime evaluator
-├── examples/
-│   └── hello.kiri
-├── tests/
-│   └── test_kiri.py
-├── main.py          # CLI entry point
-├── README.md
-├── LICENSE
-└── requirements.txt  # optional for future dependencies
+kiri/
+├── docs/
+│   ├── architecture.md       # Layered compiler & runtime architecture
+│   ├── design-decisions.md   # Architectural departures from Python
+│   ├── roadmap.md            # Phased roadmap from bootstrap to self-hosting
+│   └── language-spec.md      # Formal lexical and syntax grammar
+├── kiri/
+│   ├── compiler/             # Lexer, Parser, AST, Diagnostics, Tokens
+│   ├── runtime/              # Tagged values, Environment, Evaluator, Builtins
+│   ├── cli.py                # Unified CLI interface
+│   └── engine.py             # High-level compilation & execution pipeline
+├── tests/                    # Unit, regression, and integration tests
+├── examples/                 # Sample Kiri applications
+├── kiri.cmd                  # Windows launcher
+├── kiri.bat                  # Batch launcher
+└── README.md
 ```
 
-## Testing
+---
 
-```bash
-cd Kiri-Language
-python -m pytest -q
-```
+## Documentation
 
-## License
-
-This project is licensed under the MIT License.
+- [Architecture Specification](docs/architecture.md)
+- [Design Decisions](docs/design-decisions.md)
+- [Development Roadmap](docs/roadmap.md)
+- [Language Specification](docs/language-spec.md)

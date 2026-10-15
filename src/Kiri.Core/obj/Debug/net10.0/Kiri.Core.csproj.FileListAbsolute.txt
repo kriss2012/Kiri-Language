@@ -1,0 +1,11 @@
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\bin\Debug\net10.0\Kiri.Core.deps.json
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\bin\Debug\net10.0\Kiri.Core.dll
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\bin\Debug\net10.0\Kiri.Core.pdb
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\obj\Debug\net10.0\Kiri.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\obj\Debug\net10.0\Kiri.Core.AssemblyInfoInputs.cache
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\obj\Debug\net10.0\Kiri.Core.AssemblyInfo.cs
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\obj\Debug\net10.0\Kiri.Core.csproj.CoreCompileInputs.cache
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\obj\Debug\net10.0\Kiri.Core.dll
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\obj\Debug\net10.0\refint\Kiri.Core.dll
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\obj\Debug\net10.0\Kiri.Core.pdb
+C:\Users\IMRD\Videos\Captures\Kiri Language\src\Kiri.Core\obj\Debug\net10.0\ref\Kiri.Core.dll

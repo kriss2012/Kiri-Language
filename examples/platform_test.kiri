@@ -1,0 +1,6 @@
+import os
+import sys
+
+print("Kiri works")
+print(os.platform())
+print(sys.arch())

@@ -1,12 +1,6 @@
-"""Kiri-Language runtime and interpreter."""
+"""
+Kiri Programming Language
+Core Package
+"""
 
-from .interpreter import KiriInterpreter
-
-
-def run_source(source: str) -> str:
-    """Execute a Kiri source string and return captured output."""
-    interpreter = KiriInterpreter()
-    return interpreter.run_source(source)
-
-
-__all__ = ["KiriInterpreter", "run_source"]
+__version__ = "0.1.0"

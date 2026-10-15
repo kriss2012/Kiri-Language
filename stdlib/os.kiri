@@ -1,0 +1,8 @@
+# Kiri Standard Library: os
+
+# Platform query
+def platform():
+    return "windows"
+
+def name():
+    return "nt"
